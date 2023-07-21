@@ -41,7 +41,7 @@ export const getEnv = (): EnvFile => {
     jwtSecret: env.JWT_SECRET,
     openApi: getBooleanFromString(env.OPEN_API),
     cors: getBooleanFromString(env.CORS, true),
-    port: getNumberFromString(env.PORT, 4000),
+    port: getNumberFromString(env.PORT, 5001),
     helmet: getBooleanFromString(env.HELMET, true),
   };
 };
