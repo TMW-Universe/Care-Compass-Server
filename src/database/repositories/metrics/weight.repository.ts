@@ -1,3 +1,4 @@
+import { Injectable } from '@nestjs/common';
 import { RepositoryOptions } from '../../../types/database/repository/repository-options.interface';
 import { uuid } from '../../../types/generic/uuid.type';
 import {
@@ -5,6 +6,7 @@ import {
   WeightEntityCreateAttributes,
 } from '../../entities/metrics/weight.entity';
 
+@Injectable()
 export class WeightRepository {
   async findWeightById(weightId: uuid, options?: RepositoryOptions) {
     return await WeightEntity.findByPk(weightId, options);

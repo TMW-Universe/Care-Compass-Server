@@ -31,6 +31,10 @@ export interface WeightEntityCreateAttributes
       fields: ['createdAt'],
       unique: false,
     },
+    {
+      fields: ['deletedAt'],
+      unique: false,
+    },
   ],
 })
 export class WeightEntity
