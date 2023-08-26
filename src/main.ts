@@ -33,7 +33,7 @@ async function bootstrap() {
   if (openApi) {
     logInit('Swagger');
     const config = new DocumentBuilder()
-      .setTitle(pj.name)
+      .setTitle(pj.longName)
       .setDescription(pj.description)
       .setVersion(pj.version)
       .addBearerAuth()

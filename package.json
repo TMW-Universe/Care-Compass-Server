@@ -1,5 +1,6 @@
 {
   "name": "care_compass_server",
+  "longName": "Care Compass API",
   "version": "0.0.1",
   "description": "Care Compass (Personal health management)",
   "author": "TheMineWay",
