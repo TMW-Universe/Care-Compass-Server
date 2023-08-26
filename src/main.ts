@@ -26,6 +26,9 @@ async function bootstrap() {
   // DTO Validation
   app.useGlobalPipes(new ValidationPipe());
 
+  // Set the base route as /api
+  app.setGlobalPrefix('api');
+
   // Open API
   if (openApi) {
     logInit('Swagger');
@@ -45,11 +48,9 @@ async function bootstrap() {
     header: 'version',
   });
 
-  // Set the base route as /api
-  app.setGlobalPrefix('api');
-
   await app.listen(port);
 }
+
 bootstrap();
 
 const logInit = (name: string) => Logger.log('Is enabled!', name);
