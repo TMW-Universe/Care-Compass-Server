@@ -43,6 +43,10 @@ export const getEnv = (): EnvFile => {
     cors: getBooleanFromString(env.CORS, true),
     port: getNumberFromString(env.PORT, 5001),
     helmet: getBooleanFromString(env.HELMET, true),
+    azureActiveDirectory: {
+      clientId: env.AZ_AD_CLIENT_ID,
+      tenantId: env.AZ_AD_TENANT_ID,
+    },
   };
 };
 
@@ -63,6 +67,11 @@ interface EnvFile {
   cors: boolean;
   port: number;
   helmet: boolean;
+
+  azureActiveDirectory: {
+    clientId: string;
+    tenantId: string;
+  };
 }
 
 class RawEnvFile {
@@ -80,4 +89,7 @@ class RawEnvFile {
   CORS?: string;
   PORT?: string;
   HELMET?: string;
+
+  AZ_AD_CLIENT_ID: string;
+  AZ_AD_TENANT_ID: string;
 }
