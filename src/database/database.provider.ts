@@ -42,14 +42,3 @@ export const databaseProviders = [
     },
   },
 ];
-
-export const entityProviders = {
-  weightEntity: {
-    provide: 'WEIGHT_ENTITY_PROVIDER',
-    useValue: WeightEntity,
-  },
-  userSettingsEntity: {
-    provide: 'USER_SETTINGS_PROVIDER',
-    useValue: UserSettingsEntity,
-  }
-};
