@@ -29,6 +29,7 @@ export const getEnv = (): EnvFile => {
   const env = process.env as unknown as RawEnvFile;
 
   return {
+    domain: env.DOMAIN,
     database: {
       user: env.DATABASE_USER,
       password: env.DATABASE_PASSWORD,
@@ -43,14 +44,16 @@ export const getEnv = (): EnvFile => {
     cors: getBooleanFromString(env.CORS, true),
     port: getNumberFromString(env.PORT, 5001),
     helmet: getBooleanFromString(env.HELMET, true),
-    azureActiveDirectory: {
-      clientId: env.AZ_AD_CLIENT_ID,
-      tenantId: env.AZ_AD_TENANT_ID,
+
+    auth: {
+      host: env.TMWU_AUTH_HOST,
     },
   };
 };
 
 interface EnvFile {
+  domain: string;
+
   database: {
     user: string;
     password: string;
@@ -68,13 +71,14 @@ interface EnvFile {
   port: number;
   helmet: boolean;
 
-  azureActiveDirectory: {
-    clientId: string;
-    tenantId: string;
+  auth: {
+    host: string;
   };
 }
 
 class RawEnvFile {
+  DOMAIN: string;
+
   DATABASE_USER: string;
   DATABASE_PASSWORD: string;
   DATABASE_NAME: string;
@@ -90,6 +94,5 @@ class RawEnvFile {
   PORT?: string;
   HELMET?: string;
 
-  AZ_AD_CLIENT_ID: string;
-  AZ_AD_TENANT_ID: string;
+  TMWU_AUTH_HOST: string;
 }
