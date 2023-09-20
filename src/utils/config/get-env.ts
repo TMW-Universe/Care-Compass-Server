@@ -47,6 +47,10 @@ export const getEnv = (): EnvFile => {
 
     auth: {
       host: env.TMWU_AUTH_HOST,
+      configRetryDelay: getNumberFromString(
+        env.TMWU_AUTH_CONFIG_RETRY_DELAY,
+        10000,
+      ),
     },
   };
 };
@@ -73,6 +77,7 @@ interface EnvFile {
 
   auth: {
     host: string;
+    configRetryDelay: number;
   };
 }
 
@@ -95,4 +100,5 @@ class RawEnvFile {
   HELMET?: string;
 
   TMWU_AUTH_HOST: string;
+  TMWU_AUTH_CONFIG_RETRY_DELAY?: string;
 }

@@ -3,6 +3,11 @@ import { DatabaseModule } from './database/database.module';
 import { Module } from '@nestjs/common';
 import { ApiModule } from './api/api.module';
 import { APP_GUARD } from '@nestjs/core';
+import { getEnv } from './utils/config/get-env';
+import {
+  AuthGuard,
+  AuthModule,
+} from '@tmw-universe/tmw-universe-nestjs-auth-utils';
 
 @Module({
   imports: [
@@ -12,6 +17,11 @@ import { APP_GUARD } from '@nestjs/core';
         limit: 60,
       },
     ]),
+    AuthModule.register({
+      authHost: getEnv().auth.host,
+      configRetryDelay: getEnv().auth.configRetryDelay,
+      domain: getEnv().domain,
+    }),
     DatabaseModule,
     ApiModule,
   ],
@@ -19,6 +29,10 @@ import { APP_GUARD } from '@nestjs/core';
     {
       provide: APP_GUARD,
       useClass: ThrottlerGuard,
+    },
+    {
+      provide: APP_GUARD,
+      useClass: AuthGuard,
     },
   ],
 })
