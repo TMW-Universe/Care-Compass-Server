@@ -15,12 +15,16 @@ export class MetricsService {
   async getAllMetricsByUser(userId: uuid) {
     return await this.sequelize.transaction(async (transaction) => {
       return {
-        height: await this.heightRepository.findLatestHeightByUserId(userId, {
-          transaction,
-        }),
-        weight: await this.weightRepository.findLatestWeightByUserId(userId, {
-          transaction,
-        }),
+        height: (
+          await this.heightRepository.findLatestHeightByUserId(userId, {
+            transaction,
+          })
+        )?.getDataValue('height'),
+        weight: (
+          await this.weightRepository.findLatestWeightByUserId(userId, {
+            transaction,
+          })
+        )?.getDataValue('weight'),
       };
     });
   }

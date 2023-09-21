@@ -27,7 +27,7 @@
     "@nestjs/sequelize": "^10.0.0",
     "@nestjs/swagger": "^7.1.11",
     "@nestjs/throttler": "^5.0.0",
-    "@tmw-universe/tmw-universe-nestjs-auth-utils": "^1.0.0",
+    "@tmw-universe/tmw-universe-nestjs-auth-utils": "^1.1.0",
     "@tmw-universe/tmw-universe-types": "^1.0.4",
     "axios": "^1.5.0",
     "class-transformer": "^0.5.1",
