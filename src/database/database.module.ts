@@ -32,6 +32,8 @@ import { HeartBeatEntity } from './entities/metrics/heart-beat.entity';
             alter: true,
             force: false,
           },
+          autoLoadModels: true,
+          synchronize: true,
           models: [WeightEntity, HeightEntity, HeartBeatEntity],
           logging: logging ? console.log : undefined,
         };
