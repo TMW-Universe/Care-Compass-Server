@@ -14,16 +14,16 @@ import {
   Table,
 } from 'sequelize-typescript';
 
-export interface WeightEntityAttributes extends IIdAndTimestamps {
+export interface HeightEntityAttributes extends IIdAndTimestamps {
   userId: uuid;
-  weight: number;
+  height: number;
 }
-export interface WeightEntityCreateAttributes
-  extends OmitIdAndTimestamps<WeightEntityAttributes> {}
+export interface HeightEntityCreateAttributes
+  extends OmitIdAndTimestamps<HeightEntityAttributes> {}
 
 @Table({
   paranoid: true,
-  tableName: 'weight',
+  tableName: 'height',
   indexes: [
     {
       fields: ['userId'],
@@ -39,9 +39,9 @@ export interface WeightEntityCreateAttributes
     },
   ],
 })
-export class WeightEntity
-  extends Model<WeightEntityAttributes, WeightEntityCreateAttributes>
-  implements OmitTimestamps<WeightEntityAttributes>
+export class HeightEntity
+  extends Model<HeightEntityAttributes, HeightEntityCreateAttributes>
+  implements OmitTimestamps<HeightEntityAttributes>
 {
   @PrimaryKey
   @Default(DataType.UUIDV4)
@@ -54,5 +54,5 @@ export class WeightEntity
 
   @AllowNull(false)
   @Column(DataType.DECIMAL(5, 2))
-  weight: number; // Stored in g
+  height: number; // Stored in CM
 }
