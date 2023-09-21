@@ -7,7 +7,7 @@ import { UserId } from '@tmw-universe/tmw-universe-nestjs-auth-utils';
 export class MetricsController {
   constructor(private readonly metricsService: MetricsService) {}
 
-  @Get('all')
+  @Get('latest')
   async getAllMetrics(@UserId() userId: uuid) {
     return await this.metricsService.getAllMetricsByUser(userId);
   }
