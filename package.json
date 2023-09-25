@@ -40,7 +40,7 @@
     "tedious": "^16.2.0"
   },
   "devDependencies": {
-    "@nestjs/cli": "^10.1.17",
+    "@nestjs/cli": "^10.1.18",
     "@nestjs/schematics": "^10.0.0",
     "@nestjs/testing": "^10.2.5",
     "@types/axios": "^0.14.0",
