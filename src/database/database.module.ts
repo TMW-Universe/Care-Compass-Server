@@ -21,7 +21,7 @@ import { HeartBeatEntity } from './entities/metrics/heart-beat.entity';
           },
         } = getEnv();
         return {
-          dialect: 'mssql',
+          dialect: 'mysql',
           schema,
           host,
           port,
