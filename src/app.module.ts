@@ -8,6 +8,7 @@ import {
   AuthGuard,
   AuthModule,
 } from '@tmw-universe/tmw-universe-nestjs-auth-utils';
+import { WarehouseModule } from './warehouse-sdk/modules/warehouse.module';
 
 @Module({
   imports: [
@@ -21,6 +22,11 @@ import {
       authHost: getEnv().auth.host,
       configRetryDelay: getEnv().auth.configRetryDelay,
       domain: getEnv().domain,
+    }),
+    WarehouseModule.registerAsync(async () => {
+      return {
+        apiKey: '',
+      };
     }),
     DatabaseModule,
     ApiModule,
