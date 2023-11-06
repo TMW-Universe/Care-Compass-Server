@@ -16,13 +16,11 @@ import { HeartBeatEntity } from './entities/metrics/heart-beat.entity';
             password,
             name: database,
             port,
-            schema,
             logging,
           },
         } = getEnv();
         return {
           dialect: 'mysql',
-          schema,
           host,
           port,
           username,
